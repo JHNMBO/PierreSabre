@@ -43,11 +43,11 @@ public class Humain {
 	}
 	
 	public void gagnerArgent(int gain) {
-		this.argent += gain;
+		argent += gain;
 	}
 	
 	public void perdreArgent(int perte) {
-		this.argent -= perte;
+		argent -= perte;
 	}
 		
 	public static void main(String[] args) {

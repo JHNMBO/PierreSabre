@@ -11,10 +11,11 @@ public class HistoireTP4 {
 		marco.seFaireExtorquer();
 		marco.recevoir(15);
 		marco.boire("thé");
-		Yakuza yaku = new Yakuza("Yaku","whisky",30,"yakuza");
+		Yakuza yaku = new Yakuza("Yaku Le Noir","whisky",30,"Warsong");
 		yaku.direBonjour();
 		yaku.extorquer(marco);
 		Ronin roro = new Ronin("Roro","shochu",60);
 		roro.donner(marco);
+		roro.provoquer(yaku);
 	}
 }
