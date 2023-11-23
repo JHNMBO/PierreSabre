@@ -5,13 +5,15 @@ public class Humain {
 	private String boissonFavorite;
 	private int argent;
 	protected int nbConnaissances=0;
-	protected int nbConnaissancesBis=0;
+	protected int nbConnaissancesMax=30;
+	protected boolean memoirePleine=false;
 	protected Humain[] memoire;
 	
 	public Humain(String nom, String boissonFavorite, int argent) {
 		this.nom = nom;
 		this.boissonFavorite = boissonFavorite;
 		this.argent = argent;
+		memoire = new Humain[nbConnaissancesMax];
 	}
 	
 	public String getNom() {
@@ -65,22 +67,27 @@ public class Humain {
 	}
 	
 	private void memoriser(Humain humain) {
-		if(nbConnaissances<30) {
-			memoire[nbConnaissances] = humain;
-			nbConnaissances += 1;
+		if(nbConnaissances>=nbConnaissancesMax)
+		{
+			memoirePleine=true;
+			nbConnaissances=0;
 		}
-		else {
-			nbConnaissancesBis=30;
-			nbConnaissances=1;
-			
-		}
+		memoire[nbConnaissances++] = humain;
 	}
 	
 	public void listerConnaissance() {
-		parler("Je connais beaucoup de monde dont : ");
-		for(int i=0;i<nbConnaissances;i++) {
-			System.out.println(memoire[i].getNom());
+		String listNoms = " ";
+		int nbIterations;
+		if(memoirePleine)
+			nbIterations = nbConnaissancesMax;
+		else
+			nbIterations = nbConnaissances;
+		for(int i=0;i<nbIterations;i++) {
+			listNoms += memoire[i].getNom();
+			if(i!=nbIterations-1)
+				listNoms += ", ";
 		}
+		parler("Je connais beaucoup de monde dont :" + listNoms);
 	}
 	
 	public static void main(String[] args) {
