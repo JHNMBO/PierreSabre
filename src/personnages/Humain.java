@@ -32,8 +32,8 @@ public class Humain {
 		parler("Bonjour ! Je m'appelle " + getNom() + " et j'aime boire du " + boissonFavorite + ".");
 	}
 	
-	public void boire(String boisson) {
-		parler("Mmmm, un bon verre de " + boisson + " ! GLOUPS !");
+	public void boire() {
+		parler("Mmmm, un bon verre de " + boissonFavorite + " ! GLOUPS !");
 	}
 	
 	public void acheter(String bien, int prix) {
@@ -66,7 +66,7 @@ public class Humain {
 		memoriser(homme1);
 	}
 	
-	private void memoriser(Humain humain) {
+	public void memoriser(Humain humain) {
 		if(nbConnaissances>=nbConnaissancesMax)
 		{
 			memoirePleine=true;
@@ -94,7 +94,7 @@ public class Humain {
 		Humain prof = new Humain("Prof", "kombucha", 54);
 		prof.direBonjour();
 		prof.acheter("une boisson", 12);
-		prof.boire("kombucha");
+		prof.boire();
 		prof.acheter("un jeu", 2);
 		prof.acheter("un kimono", 50);
 	}
